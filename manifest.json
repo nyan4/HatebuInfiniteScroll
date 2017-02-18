@@ -1,0 +1,30 @@
+{
+  "name": "Hatebu Infinite Scroll",
+  "version": "0.1",
+  "manifest_version": 2,
+  
+  "description": "はてぶの新着ページを無限スクロールにします",
+  
+  "permissions" : [
+  ],
+  
+  "icons" : {
+    "48" : "icon48.png"
+  },
+  
+  "background" : {
+  },
+
+  "browser_action" : {
+    "default_icon" : "icon19.png",
+    "default_title" : "Hatebu Infinite Scroll"
+  },
+
+  "content_scripts": [
+    {
+      "matches" : ["http://b.hatena.ne.jp/entrylist*"],
+      "js" : ["jquery-1.10.2.min.js", "content.js"]
+    }
+  ]
+
+}
