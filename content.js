@@ -22,16 +22,14 @@ $(function() {
 				type: 'GET',
 				dataType: 'html',
 			}).always(function(data){
-				var container = $($.parseHTML(data)).filter("div#container")[0].innerHTML;
-				var main = $($.parseHTML(container)).filter("div#main")[0].innerHTML;
-				var boxwrap = $($.parseHTML(main)).filter("div.box-wrap.mix.box2.top")[0].innerHTML;
-				var next_page = $($($(boxwrap))[2]).find(".pager-next");
+				var next_page = $(data).find(".pager-next");
+				var boxwrap = $(data).find("div.box-wrap.mix.box2.top");
 				if (next_page.length==0) {
 					console.log("次なし");
 					isNextPage = false;
 				}
 				nexthref = $(next_page).attr("href");
-				$("div.box-wrap.mix.box2.top").append(boxwrap);
+				$("div.box-wrap.mix.box2.top").append($(boxwrap)[0].innerHTML);
 				isloading = false;
 			});
 		}
